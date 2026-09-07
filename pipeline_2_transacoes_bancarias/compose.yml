@@ -1,0 +1,6 @@
+services:
+  dbt:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./database:/app/database

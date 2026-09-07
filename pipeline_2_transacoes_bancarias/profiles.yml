@@ -2,7 +2,7 @@ pipeline_2_transacoes_bancarias:
   outputs:
     dev:
       type: duckdb
-      path: dev.duckdb
+      path: /app/database/dev.duckdb
       threads: 1
 
     prod:
@@ -11,4 +11,3 @@ pipeline_2_transacoes_bancarias:
       threads: 4
 
   target: dev
-  
