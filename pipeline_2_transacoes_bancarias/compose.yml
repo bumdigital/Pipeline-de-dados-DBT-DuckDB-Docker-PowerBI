@@ -1,6 +1,19 @@
 services:
   dbt:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: pipeline_2_dbt
+
+    working_dir: /app
+
     volumes:
-      - ./data:/app/data
-      - ./database:/app/database
+      - .:/app
+
+    env_file:
+      - .env
+
+    entrypoint: ["dbt"]
+
+    restart: "no"
