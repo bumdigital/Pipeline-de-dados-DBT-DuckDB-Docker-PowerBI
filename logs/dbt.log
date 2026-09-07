@@ -1,0 +1,75 @@
+[0m01:17:01.259493 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afc81cc1d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afc83eb8910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afc80617d90>]}
+
+
+============================== 01:17:01.271371 | cafb216a-4bee-437b-a8da-a5d0a226137c ==============================
+[0m01:17:01.271371 [info ] [MainThread]: Running with dbt=1.12.3
+[0m01:17:01.272163 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'maximum_seed_size_mib': '1', 'cache_selected_only': 'False', 'use_colors': 'True', 'hints_enabled': 'True', 'no_print': 'None', 'printer_width': '80', 'partial_parse': 'True', 'quiet': 'False', 'debug': 'False', 'static_parser': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'version_check': 'True', 'fail_fast': 'False', 'empty': 'None', 'warn_error': 'None', 'indirect_selection': 'eager', 'profiles_dir': '/home/master10/.dbt', 'target_path': 'None', 'log_path': 'logs', 'log_cache_events': 'False'}
+[0m01:17:01.285423 [info ] [MainThread]: Creating dbt configuration folder at /home/master10/.dbt
+[0m01:18:38.837492 [debug] [MainThread]: Starter project path: /home/master10/Projetos_pipelines/pipeline_2/.venv/lib/python3.14/site-packages/dbt/include/starter_project
+[0m01:18:38.845538 [info ] [MainThread]: Setting up your profile.
+[0m01:18:59.397755 [info ] [MainThread]: Profile pipeline_2_transacoes_bancarias written to /home/master10/.dbt/profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m01:18:59.399678 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m01:18:59.400598 [info ] [MainThread]: dbt version: 1.12.3
+[0m01:18:59.401197 [info ] [MainThread]: python version: 3.14.4
+[0m01:18:59.401973 [info ] [MainThread]: python path: /home/master10/Projetos_pipelines/pipeline_2/.venv/bin/python3
+[0m01:18:59.402551 [info ] [MainThread]: os info: Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43
+[0m01:18:59.484019 [info ] [MainThread]: Using profiles dir at /home/master10/.dbt
+[0m01:18:59.484675 [info ] [MainThread]: Using profiles.yml file at /home/master10/.dbt/profiles.yml
+[0m01:18:59.485181 [info ] [MainThread]: Using dbt_project.yml file at /home/master10/Projetos_pipelines/pipeline_2/pipeline_2_transacoes_bancarias/dbt_project.yml
+[0m01:18:59.487208 [info ] [MainThread]: adapter type: duckdb
+[0m01:18:59.487734 [info ] [MainThread]: adapter version: 1.11.0
+[0m01:18:59.643368 [info ] [MainThread]: Configuration:
+[0m01:18:59.644031 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m01:18:59.644588 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m01:18:59.645079 [info ] [MainThread]: Required dependencies:
+[0m01:18:59.645625 [debug] [MainThread]: Executing "git --help"
+[0m01:18:59.648503 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m01:18:59.649149 [debug] [MainThread]: STDERR: "b''"
+[0m01:18:59.649611 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m01:18:59.650197 [info ] [MainThread]: Connection:
+[0m01:18:59.651026 [info ] [MainThread]:   database: dev
+[0m01:18:59.652006 [info ] [MainThread]:   schema: main
+[0m01:18:59.652731 [info ] [MainThread]:   path: dev.duckdb
+[0m01:18:59.653270 [info ] [MainThread]:   config_options: None
+[0m01:18:59.653795 [info ] [MainThread]:   extensions: None
+[0m01:18:59.654305 [info ] [MainThread]:   settings: {}
+[0m01:18:59.654825 [info ] [MainThread]:   external_root: .
+[0m01:18:59.655303 [info ] [MainThread]:   use_credential_provider: None
+[0m01:18:59.655882 [info ] [MainThread]:   attach: None
+[0m01:18:59.656356 [info ] [MainThread]:   filesystems: None
+[0m01:18:59.656888 [info ] [MainThread]:   remote: None
+[0m01:18:59.657510 [info ] [MainThread]:   plugins: None
+[0m01:18:59.658093 [info ] [MainThread]:   disable_transactions: False
+[0m01:18:59.658906 [info ] [MainThread]: Registered adapter: duckdb=1.11.0
+[0m01:18:59.744514 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m01:18:59.773682 [debug] [MainThread]: Using duckdb connection "debug"
+[0m01:18:59.774251 [debug] [MainThread]: On debug: select 1 as id
+[0m01:18:59.774704 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m01:18:59.808289 [debug] [MainThread]: SQL status: OK in 0.033 seconds
+[0m01:18:59.809500 [debug] [MainThread]: On debug: Close
+[0m01:18:59.809982 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m01:18:59.810600 [info ] [MainThread]: [32mAll checks passed![0m
+[0m01:18:59.811191 [info ] [MainThread]: Your new dbt project "pipeline_2_transacoes_bancarias" was created!
+Initialized new project in /home/master10/Projetos_pipelines/pipeline_2/pipeline_2_transacoes_bancarias/pipeline_2_transacoes_bancarias
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m01:18:59.813265 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 118.65741, "process_in_blocks": "4144", "process_kernel_time": 0.20762, "process_mem_max_rss": "188140", "process_out_blocks": "112", "process_user_time": 2.215953}
+[0m01:18:59.814148 [debug] [MainThread]: Command `dbt init` succeeded at 01:18:59.813936 after 118.66 seconds
+[0m01:18:59.814630 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m01:18:59.815117 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afc80846780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afc80464ef0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7afc7a70b130>]}
+[0m01:18:59.815653 [debug] [MainThread]: Flushing usage events
+[0m01:19:00.777376 [debug] [MainThread]: An error was encountered while trying to flush usage events
