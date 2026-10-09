@@ -1,0 +1,115 @@
+version: 2
+
+models:
+  - name: transacoes_silver
+    description: >
+      Modelo da camada Silver de transações bancárias, materializado
+      como tabela e derivado do modelo transacoes_raw.
+      Remove espaços nas extremidades dos campos textuais tratados
+      e converte textos vazios em NULL.
+      Padroniza a UF em letras maiúsculas e os indicadores de
+      internacionalização e fraude em SIM ou NAO, convertendo
+      valores não reconhecidos em NULL.
+      Deduplica por id_transacao, mantendo o registro com a maior
+      data_hora_transacao. Em caso de empate nessa data, o modelo
+      não define um critério adicional de desempate.
+      Os demais campos são preservados conforme a origem.
+
+    columns:
+      - name: id_transacao
+        description: >
+          Identificador da transação e chave utilizada na deduplicação.
+          Espera-se um valor único e não nulo por registro.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: id_cliente
+        description: "Identificador do cliente associado à transação."
+
+      - name: id_conta
+        description: "Identificador da conta associada à transação."
+
+      - name: data_hora_transacao
+        description: >
+          Data e hora da transação, utilizadas para selecionar
+          o registro mantido na deduplicação.
+
+      - name: data_abertura_conta
+        description: "Data de abertura da conta, preservada da origem."
+
+      - name: tipo_conta
+        description: "Tipo da conta, com espaços externos removidos e texto vazio convertido em NULL."
+
+      - name: segmento_cliente
+        description: "Segmento do cliente, com espaços externos removidos e texto vazio convertido em NULL."
+
+      - name: uf_cliente
+        description: >
+          UF do cliente, com espaços externos removidos,
+          texto vazio convertido em NULL e letras em maiúsculas.
+          O modelo não valida se a sigla corresponde a uma UF existente.
+
+      - name: faixa_etaria
+        description: "Faixa etária do cliente, com espaços externos removidos e texto vazio convertido em NULL."
+
+      - name: produto_bancario
+        description: "Produto bancário associado à transação, com espaços externos removidos e texto vazio convertido em NULL."
+
+      - name: tipo_transacao
+        description: "Tipo da transação, com espaços externos removidos e texto vazio convertido em NULL."
+
+      - name: canal
+        description: "Canal da transação, com espaços externos removidos e texto vazio convertido em NULL."
+
+      - name: valor_transacao
+        description: "Valor da transação, preservado da origem."
+
+      - name: tarifa
+        description: "Tarifa associada à transação, preservada da origem."
+
+      - name: saldo_antes
+        description: "Saldo informado antes da transação, preservado da origem."
+
+      - name: saldo_depois
+        description: "Saldo informado após a transação, preservado da origem."
+
+      - name: status_transacao
+        description: "Status da transação, com espaços externos removidos e texto vazio convertido em NULL."
+
+      - name: motivo_recusa
+        description: "Motivo de recusa informado na origem, com espaços externos removidos e texto vazio convertido em NULL."
+
+      - name: categoria_estabelecimento
+        description: "Categoria do estabelecimento, com espaços externos removidos e texto vazio convertido em NULL."
+
+      - name: indicador_internacional
+        description: >
+          Indicador de transação internacional.
+          S, SIM, Y, YES e 1 são convertidos em SIM;
+          N, NAO, NÃO, NO e 0 são convertidos em NAO.
+          A comparação ignora diferenças entre maiúsculas e minúsculas
+          e espaços externos. Outros valores são convertidos em NULL.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['SIM', 'NAO']
+
+      - name: indicador_fraude
+        description: >
+          Indicador de fraude informado na origem.
+          S, SIM, Y, YES e 1 são convertidos em SIM;
+          N, NAO, NÃO, NO e 0 são convertidos em NAO.
+          A comparação ignora diferenças entre maiúsculas e minúsculas
+          e espaços externos. Outros valores são convertidos em NULL.
+          O modelo padroniza o indicador, sem realizar detecção de fraude.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['SIM', 'NAO']
+
+      - name: score_risco
+        description: >
+          Pontuação de risco preservada da origem.
+          A escala e os limites válidos dependem da definição
+          do sistema de origem.

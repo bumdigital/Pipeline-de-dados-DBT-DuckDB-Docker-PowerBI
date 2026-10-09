@@ -36,12 +36,11 @@ tratamento AS (
         nullif(trim(status_transacao), '') AS status_transacao,
         nullif(trim(motivo_recusa), '') AS motivo_recusa,
         nullif(trim(categoria_estabelecimento), '') AS categoria_estabelecimento,
-        upper(nullif(trim(indicador_internacional), '')) AS indicador_internacional,
-
+        
         CASE
-            WHEN upper(trim(indicador_internacional)) IN ('S', 'SIM', 'YES', '1')
+            WHEN upper(trim(indicador_internacional)) IN ('S', 'SIM', 'Y', 'YES', '1')
                 THEN 'SIM'
-            WHEN upper(trim(indicador_internacional)) in ('N', 'NAO', 'NÂO', 'NO', '0')
+            WHEN upper(trim(indicador_internacional)) in ('N', 'NAO', 'NÃO', 'NO', '0')
                 THEN 'NAO'
             ELSE NULL
         END AS indicador_internacional,
